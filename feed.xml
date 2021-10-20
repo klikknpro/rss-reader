@@ -1,0 +1,35 @@
+<news>
+  <item>
+    <title>
+    Politics
+    </title>
+    <description>
+    Events from Europe
+    </description>
+    <a>
+    https://www.google.com
+    </a>
+  </item>
+  <item>
+    <title>
+    Sport
+    </title>
+    <description>
+    Games in Europe
+    </description>
+    <a>
+    https://www.google.com
+    </a>
+  </item>
+  <item>
+    <title>
+    Weather
+    </title>
+    <description>
+    Is it going to rain today?
+    </description>
+    <a>
+    https://www.google.com
+    </a>
+  </item>
+</news>
