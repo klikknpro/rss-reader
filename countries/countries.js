@@ -1,24 +1,37 @@
-window.addEventListener("load", loadCountry);
+function loadCountry() {
+  const input = document.createElement("input");
+  input.setAttribute("type", "text");
+  document.body.appendChild(input);
 
-const searchList = ["brazil"];
-for (let i = 0; i < searchList.length; i++) {
-  const searchLink = `https://restcountries.com/v3.1/name/${searchList[i]}`;
-  loadCountry(searchLink);
+  const enterBut = document.createElement("button");
+  document.body.appendChild(enterBut);
+  enterBut.addEventListener("click", getServerData(input.value));
 }
 
-function loadCountry(link) {
-  fetch("link")
+function getServerData(inputVal) {
+  fetch(`https://restcountries.com/v3.1/name/${inputVal}`)
     .then((r) => r.json())
     .then(showCountry);
 }
 
+// document.body.appendChild(input);
+
 function showCountry(c) {
   console.log(c);
+  const country = document.createElement("h1");
+  country.setAttribute("id", "country");
+  document.body.appendChild(country);
   const name = c[0].name.official;
+  country.innerHTML = name;
+
   const flag = c[0].flags.png;
-  document.getElementById("name").textContent = name;
-  document.getElementById("flag").setAttribute("src", flag);
+  const image = document.createElement("img");
+  image.setAttribute("src", flag);
+  image.setAttribute("id", "flag");
+  document.body.appendChild(image);
 }
+
+window.addEventListener("load", loadCountry);
 
 /* list more countries
 display a flag (w <img>)
