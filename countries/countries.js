@@ -21,4 +21,10 @@ function showCountry(c) {
 }
 
 /* list more countries
-display a flag (w <img>) */
+display a flag (w <img>)
+
+for ciklus a showCountry-ban
+
+1 fetch only
+
+*/
