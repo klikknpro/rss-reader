@@ -1,23 +1,27 @@
-function loadPage() {
-  const searchButton = document.createElement("button");
-  searchButton.id = "search";
-  searchButton.innerHTML = "SEARCH";
-  document.querySelector("body .container").appendChild(searchButton);
+const searchButton = document.createElement("button");
+searchButton.id = "search";
+searchButton.innerHTML = "SEARCH";
+document.querySelector("body .container").appendChild(searchButton);
 
-  const searchBar = document.createElement("input");
-  searchBar.type = "text";
-  searchBar.id = "searchBar";
-  document.querySelector("body .container").appendChild(searchBar);
+const searchBar = document.createElement("input");
+searchBar.type = "text";
+searchBar.id = "searchBar";
+document.querySelector("body .container").appendChild(searchBar);
 
-  searchBar.defaultValue = "hungary";
-  searchButton.addEventListener("click", loadCountry(searchBar.defaultValue));
-}
+// searchBar.defaultValue = "hungary";
+const searchValue = searchBar.value;
+searchButton.addEventListener("click", loadCountry());
 
-function loadCountry(searchValue) {
-  searchValue = document.getElementById("searchBar").value;
-  fetch(`https://restcountries.com/v3.1/name/${searchValue}`)
-    .then((r) => r.json())
-    .then(showCountry);
+debugger;
+
+function loadCountry(s) {
+  if (s) {
+    fetch(`https://restcountries.com/v3.1/name/${s}`)
+      .then((r) => r.json())
+      .then(showCountry);
+  } else {
+    alert("Enter a country!");
+  }
 }
 
 function showCountry(c) {
@@ -36,7 +40,4 @@ function showCountry(c) {
   container.insertBefore(image, country);
 }
 
-window.addEventListener("load", loadPage);
-
-/* list more countries
-display a flag (w <img>) */
+// window.addEventListener("load", loadPage);
